@@ -1,5 +1,7 @@
 package br.com.practising.functionalinterfaces;
 
+import br.com.practising.pojos.BasePojo;
+
 import java.util.stream.Stream;
 
 /**
@@ -14,7 +16,7 @@ public class RunnableDemo {
         final RunnableImpl runnableImpl = new RunnableImpl();
 
         // Creating handle of onClose on stream
-        final Stream<Pojo> streamEx = Stream.of(new Pojo()).onClose(runnableImpl);
+        final Stream<BasePojo> streamEx = Stream.of(new BasePojo()).onClose(runnableImpl);
 
         // Closing the stream
         streamEx.close();
@@ -25,10 +27,6 @@ public class RunnableDemo {
         public void run() {
             System.out.println("Then I run!");
         }
-    }
-
-    private static class Pojo {
-        Pojo() {}
     }
 
 }
